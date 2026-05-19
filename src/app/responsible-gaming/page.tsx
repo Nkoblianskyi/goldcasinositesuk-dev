@@ -1,206 +1,222 @@
+import Link from "next/link"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
-import Image from "next/image"
-import Link from "next/link"
+import { PageHero, IconCard, SectionHeader } from "@/components/page-section"
+import {
+  HeartHandshake,
+  Wallet,
+  Bell,
+  Clock,
+  Ban,
+  AlertTriangle,
+  Phone,
+} from "lucide-react"
 
 export const metadata = {
-  title: "Responsible Gaming | VIPCasinoSitesUK.com",
+  title: "Responsible Gaming | GoldCasinoSitesUK.com",
   description:
-    "VIPCasinoSitesUK.com is committed to responsible gambling. Find practical tools, self-help resources, and UK support organisations to help you stay in control.",
+    "GoldCasinoSitesUK.com champions safe play. Explore UKGC-mandated tools, recognise warning signs, and connect with trusted British support organisations.",
 }
 
 const tools = [
   {
+    icon: <Wallet className="w-5 h-5" />,
+    accent: "gold" as const,
     title: "Deposit Limits",
-    body: "All UKGC-licensed operators are legally required to offer daily, weekly, and monthly deposit caps. Establishing these limits before you begin playing ensures your spending never exceeds an amount you are comfortable with.",
+    body: "Set daily, weekly, or monthly caps before you play. Every UKGC-licensed casino must honour these limits — helping you stay within a budget you have decided in advance.",
   },
   {
+    icon: <Bell className="w-5 h-5" />,
+    accent: "navy" as const,
     title: "Reality Check Alerts",
-    body: "Reality check notifications pause your session at intervals you choose, reminding you of the time elapsed and the amount wagered. These prompts help maintain healthy perspective during extended play sessions.",
+    body: "Scheduled pop-up reminders show how long you have been playing and how much you have wagered. A simple pause that keeps entertainment from drifting into excess.",
   },
   {
+    icon: <Clock className="w-5 h-5" />,
+    accent: "emerald" as const,
     title: "Time-Out Periods",
-    body: "If you need a short break from gambling, licensed casinos offer temporary account suspensions ranging from 24 hours to six weeks. During a time-out your account is fully locked and no marketing communications will be sent to you.",
+    body: "Need a breather? Licensed operators offer cooling-off periods from 24 hours to six weeks. Your account locks, and promotional emails stop until the period ends.",
   },
   {
+    icon: <Ban className="w-5 h-5" />,
+    accent: "gold" as const,
     title: "Self-Exclusion",
-    body: "Self-exclusion allows you to block yourself from gambling at an operator for a minimum period of six months. UKGC-licensed casinos are legally obligated to honour self-exclusion requests and must not contact you with promotional material during the exclusion period.",
+    body: "Block yourself from a single operator for six months or longer. For a nationwide block across every UKGC-licensed site, register free with GamStop — details below.",
   },
 ]
 
 const organisations = [
   {
     name: "BeGambleAware",
-    description: "Free, confidential advice and support available around the clock. Call the National Gambling Helpline: 0808 8020 133.",
     href: "https://www.begambleaware.org/",
-    logo: "/gamble-aware.png",
+    description:
+      "Confidential guidance and practical tools for anyone concerned about their gambling. National Gambling Helpline: 0808 8020 133 — free, 24 hours a day.",
   },
   {
     name: "GamCare",
-    description: "The UK's leading provider of information, advice, and support for anyone affected by problem gambling.",
     href: "https://www.gamcare.org.uk/",
-    logo: "/gamcare.png",
+    description:
+      "Specialist information, live chat, and counselling for people affected by problem gambling across England, Scotland, and Wales.",
   },
   {
     name: "GamStop",
-    description: "Register with GamStop to self-exclude from all UKGC-licensed gambling websites and mobile applications simultaneously, free of charge.",
     href: "https://www.gamstop.co.uk/",
-    logo: "/gamstop.svg",
+    description:
+      "Free national self-exclusion scheme covering every UKGC-licensed online casino and betting site — one registration, every operator.",
   },
   {
     name: "Gambling Therapy",
-    description: "Free online support services, forums, and counselling for anyone around the world affected by the harms of problem gambling.",
     href: "https://www.gamblingtherapy.org/",
-    logo: "/gordon.png",
+    description:
+      "Online support groups, live chat, and multilingual counselling for anyone affected by gambling harm, wherever they are.",
   },
 ]
 
 const warningSigns = [
-  "Spending more money than you can genuinely afford to lose",
-  "Gambling to escape stress, anxiety, or difficult personal circumstances",
-  "Chasing losses by increasing bet sizes or extending session length",
-  "Being dishonest with friends or family about the extent of your gambling",
-  "Neglecting work, study, family responsibilities, or personal commitments",
-  "Borrowing money or selling possessions in order to fund continued gambling",
-  "Feeling anxious, irritable, or restless when unable to gamble",
-  "Making repeated but unsuccessful attempts to reduce or stop gambling entirely",
+  "Betting more than you can comfortably afford to lose",
+  "Using gambling to manage stress, anxiety, or low mood",
+  "Chasing losses by raising stakes or extending sessions",
+  "Hiding the scale of your gambling from family or friends",
+  "Letting work, study, or relationships suffer because of play",
+  "Borrowing money or selling assets to keep gambling",
+  "Feeling restless or irritable when you cannot gamble",
+  "Trying repeatedly to cut back without lasting success",
 ]
 
 export default function ResponsibleGaming() {
   return (
-    <main className="min-h-screen flex flex-col bg-[hsl(0,0%,5%)]">
+    <main className="min-h-screen flex flex-col bg-background">
       <SiteHeader />
 
-      {/* Hero */}
-      <section className="pt-[66px] bg-[hsl(0,0%,7%)]">
-        <div className="h-[2px] bg-[hsl(43,72%,48%)]" />
-        <div className="container mx-auto px-4 py-14 md:py-20">
-          <div className="max-w-2xl mx-auto text-center">
-            <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-4">
-              Player Welfare
-            </p>
-            <h1 className="font-serif font-bold text-3xl md:text-5xl text-[hsl(43,20%,88%)] mb-5 text-balance">
-              Responsible Gaming
-            </h1>
-            <div className="h-px bg-[hsl(43,72%,48%)]/30 w-32 mx-auto mb-5" />
-            <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed max-w-xl mx-auto">
-              Gambling is entertainment. At VIPCasinoSitesUK.com, we are unconditionally committed to promoting safe, responsible, and informed play for every UK player who visits our platform.
+      <PageHero
+        eyebrow="Player Welfare"
+        title="Responsible Gaming"
+        subtitle="Gambling should stay enjoyable. At GoldCasinoSitesUK.com we champion informed, controlled play — and signpost every resource a UK player needs to stay safe."
+      />
+
+      <div className="section-divider-gold" />
+
+      {/* Commitment */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeader eyebrow="Our Commitment" title="Staying in Control" />
+            <IconCard
+              icon={<HeartHandshake className="w-5 h-5" />}
+              accent="emerald"
+              title="Entertainment First, Always"
+              body="Millions of UK adults enjoy online casinos responsibly. For some, habits can shift into harm — and we take that seriously. We encourage every visitor to set limits, gamble only with disposable income, and treat gaming as leisure, never income."
+            />
+            <p className="mt-5 text-sm leading-relaxed text-[hsl(222,15%,40%)]">
+              Every operator we list holds a current UK Gambling Commission licence and must provide deposit limits, reality checks, time-outs, and self-exclusion. If your relationship with gambling is causing concern, the organisations below offer free, confidential help — no judgement, no delay.
             </p>
           </div>
         </div>
-        <div className="h-px bg-[hsl(43,72%,48%)]/20" />
       </section>
 
-      {/* Content */}
-      <section className="py-14 md:py-20 bg-[hsl(0,0%,5%)]">
+      <div className="section-divider-gold" />
+
+      {/* Tools */}
+      <section className="py-12 md:py-16 bg-[hsl(40,30%,95%)]">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto space-y-16">
-
-            {/* Commitment */}
-            <div>
-              <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-3">Our Commitment</p>
-              <h2 className="font-serif font-bold text-2xl md:text-3xl text-[hsl(43,20%,88%)] mb-4">
-                Playing Within Control
-              </h2>
-              <div className="h-px bg-[hsl(0,0%,18%)] w-full mb-6" />
-              <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed mb-4">
-                Online gambling is a legitimate form of entertainment enjoyed responsibly by millions of British adults. For some individuals, however, it can become harmful. We take our duty of care seriously and actively encourage all visitors to set clear boundaries, gamble only with money they can comfortably afford to lose, and treat gaming purely as recreational activity.
-              </p>
-              <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed">
-                Every casino featured on our platform holds a valid UKGC licence. Licensed operators are legally required to provide comprehensive responsible gambling tools and must comply with strict player protection standards enforced by the UK Gambling Commission. If you have any concerns about your gambling behaviour, please use the resources below without delay.
-              </p>
+          <div className="max-w-3xl mx-auto">
+            <SectionHeader eyebrow="Player Tools" title="Built-In Safeguards" centered />
+            <p className="text-center text-sm text-[hsl(222,15%,45%)] leading-relaxed mb-8 max-w-xl mx-auto">
+              UK law requires licensed casinos to offer these protections. Activate them in your account settings before your first session.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {tools.map((tool) => (
+                <IconCard key={tool.title} {...tool} />
+              ))}
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Tools */}
-            <div>
-              <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-3">Tools</p>
-              <h2 className="font-serif font-bold text-2xl md:text-3xl text-[hsl(43,20%,88%)] mb-4">
-                Responsible Gambling Tools
-              </h2>
-              <div className="h-px bg-[hsl(0,0%,18%)] w-full mb-6" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {tools.map((tool, i) => (
-                  <div key={i} className="border border-[hsl(0,0%,18%)] bg-[hsl(0,0%,8%)] p-6 hover:border-[hsl(43,72%,48%)]/40 transition-colors duration-200">
-                    <div className="h-px bg-[hsl(43,72%,48%)] w-8 mb-4" />
-                    <h3 className="font-serif font-bold text-base text-[hsl(43,20%,88%)] mb-2">{tool.title}</h3>
-                    <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed">{tool.body}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+      <div className="section-divider-emerald" />
 
-            {/* Warning signs */}
-            <div>
-              <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-3">Awareness</p>
-              <h2 className="font-serif font-bold text-2xl md:text-3xl text-[hsl(43,20%,88%)] mb-4">
-                Recognising Problem Gambling
-              </h2>
-              <div className="h-px bg-[hsl(0,0%,18%)] w-full mb-6" />
-              <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed mb-6">
-                Early recognition is the most important step toward recovery. Please seek support if you recognise any of the following behaviours in yourself or someone you know:
-              </p>
-              <ul className="space-y-2">
-                {warningSigns.map((sign, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-[hsl(43,10%,50%)] border-l border-[hsl(0,0%,18%)] pl-4">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[hsl(358,72%,52%)] mt-2 flex-shrink-0" />
-                    <span className="leading-relaxed">{sign}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Warning signs */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeader eyebrow="Awareness" title="Recognising the Warning Signs" />
+            <p className="text-sm text-[hsl(222,15%,40%)] leading-relaxed mb-6">
+              Spotting a problem early makes recovery easier. Reach out for support if you — or someone close to you — recognise any of the following:
+            </p>
+            <ul className="space-y-2.5">
+              {warningSigns.map((sign) => (
+                <li
+                  key={sign}
+                  className="flex gap-3 rounded-r-lg border border-[hsl(220,20%,90%)] border-l-2 border-l-[hsl(358,72%,48%)] bg-white py-3 pl-4 pr-3 text-sm text-[hsl(222,15%,40%)] shadow-sm"
+                >
+                  <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[hsl(358,72%,48%)]" />
+                  <span className="leading-relaxed">{sign}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
-            {/* Support organisations */}
-            <div>
-              <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-3">Support</p>
-              <h2 className="font-serif font-bold text-2xl md:text-3xl text-[hsl(43,20%,88%)] mb-4">
-                UK Support Organisations
-              </h2>
-              <div className="h-px bg-[hsl(0,0%,18%)] w-full mb-6" />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {organisations.map((org) => (
+      <div className="section-divider-gold" />
+
+      {/* Support organisations */}
+      <section className="py-12 md:py-16 bg-[hsl(40,30%,95%)]">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <SectionHeader eyebrow="Support" title="UK Support Organisations" centered />
+            <p className="text-center text-sm text-[hsl(222,15%,45%)] leading-relaxed mb-8 max-w-xl mx-auto">
+              Independent charities and schemes — free of charge, confidential, and ready when you need them.
+            </p>
+            <ul className="space-y-4">
+              {organisations.map((org) => (
+                <li
+                  key={org.name}
+                  className="rounded-xl border border-[hsl(220,20%,88%)] bg-white p-5 shadow-sm"
+                >
                   <Link
-                    key={org.name}
                     href={org.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-[hsl(0,0%,18%)] bg-[hsl(0,0%,8%)] p-5 hover:border-[hsl(43,72%,48%)]/40 transition-colors duration-200 flex flex-col gap-3 group"
+                    className="font-serif text-base font-bold text-[hsl(43,85%,42%)] underline-offset-2 hover:underline"
                   >
-                    <Image
-                      src={org.logo}
-                      alt={org.name}
-                      width={120}
-                      height={36}
-                      className="object-contain bg-white rounded p-1 h-8 w-auto opacity-70 group-hover:opacity-100 transition-opacity duration-200"
-                    />
-                    <div>
-                      <p className="font-serif font-bold text-sm text-[hsl(43,20%,88%)] mb-1 group-hover:text-[hsl(43,72%,48%)] transition-colors duration-200">{org.name}</p>
-                      <p className="text-xs text-[hsl(43,10%,50%)] leading-relaxed">{org.description}</p>
-                    </div>
+                    {org.name}
                   </Link>
-                ))}
+                  <p className="mt-2 text-sm leading-relaxed text-[hsl(222,15%,40%)]">{org.description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Helpline callout */}
+      <section className="py-12 md:py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto">
+            <div className="rounded-2xl border border-[hsl(222,30%,22%)] bg-[hsl(222,47%,13%)] p-8 md:p-10">
+              <div className="rule-gold mb-6" />
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-[hsl(43,85%,48%)]/30 bg-[hsl(43,85%,48%)]/10">
+                  <Phone className="h-5 w-5 text-[hsl(43,85%,55%)]" />
+                </div>
+                <div>
+                  <span className="eyebrow-gold mb-2 block text-[hsl(43,85%,55%)]">Need Help Now?</span>
+                  <h3 className="font-serif text-xl font-bold text-white mb-3">
+                    National Gambling Helpline — 24/7
+                  </h3>
+                  <p className="text-sm leading-relaxed text-[hsl(222,15%,65%)] mb-4">
+                    Trained advisors offer free, confidential support at any hour. You do not need to be in crisis to call — a conversation can be the first step back to control.
+                  </p>
+                  <p className="font-serif text-2xl font-bold text-[hsl(43,85%,55%)] mb-1">0808 8020 133</p>
+                  <p className="text-xs text-[hsl(222,15%,55%)] mb-5">Free from all UK landlines and mobiles</p>
+                  <p className="text-xs leading-relaxed text-[hsl(222,15%,50%)]">
+                    18+ only. Gambling can be addictive. Please play responsibly. All featured casinos hold valid UKGC licences.
+                  </p>
+                </div>
               </div>
+              <div className="rule-gold mt-6 opacity-30" />
             </div>
-
-            {/* Emergency callout */}
-            <div className="bg-[hsl(0,0%,8%)] border border-[hsl(0,0%,18%)] p-8">
-              <div className="h-px bg-[hsl(43,72%,48%)] mb-7" />
-              <p className="text-xs font-sans font-semibold tracking-[0.28em] uppercase text-[hsl(43,72%,48%)] mb-3">
-                Need Help Right Now?
-              </p>
-              <h3 className="font-serif font-bold text-xl text-[hsl(43,20%,88%)] mb-4">
-                Free, Confidential Support Available 24/7
-              </h3>
-              <p className="text-sm text-[hsl(43,10%,50%)] leading-relaxed mb-4">
-                The National Gambling Helpline provides free, confidential support, information, and counselling at any hour of the day or night. You do not need to be in crisis to call. Trained advisors are ready to help.
-              </p>
-              <p className="font-serif font-bold text-2xl text-[hsl(43,72%,48%)] mb-2">0808 8020 133</p>
-              <p className="text-xs text-[hsl(43,10%,50%)] mb-6">Free from all UK landlines and mobile phones</p>
-              <p className="text-xs text-[hsl(43,10%,40%)] leading-relaxed">
-                18+ only. Gambling can be addictive. Please play responsibly. All featured casinos hold valid UKGC licences.
-              </p>
-              <div className="h-px bg-[hsl(43,72%,48%)]/30 mt-7" />
-            </div>
-
           </div>
         </div>
       </section>
